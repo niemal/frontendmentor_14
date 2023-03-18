@@ -114,7 +114,7 @@ const outInjection = css`
 
 const MenuWrapper = styled.div`
   width: calc(100% - 48px);
-  display: flex;
+  display: none;
   flex-direction: column;
   padding: 32px 24px;
   border-radius: 12px;
@@ -127,6 +127,10 @@ const MenuWrapper = styled.div`
 
   ${(p) => (p.open ? inInjection : !p.firstRender ? outInjection : "")}
   opacity: 0;
+
+  @media ${QUERIES.phoneAndSmaller} {
+    display: flex;
+  }
 `;
 
 const TopMenuWrapper = styled.div`
