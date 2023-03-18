@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Wrapper } from "../URLShorten";
 import { MainContext } from "../MainBody";
 import { useContext, createContext, useState } from "react";
@@ -20,6 +20,17 @@ const MyWrapper = styled(Wrapper)`
   }
 `;
 
+const appear = keyframes`
+  0% {
+    opacity: 0;
+    transform: perspective(400px) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) perspective(400px);
+  }
+`;
+
 const ShortenedWrapper = styled.div`
   background-color: var(--color-white);
   padding: 16px 32px;
@@ -34,6 +45,8 @@ const ShortenedWrapper = styled.div`
     align-items: start;
     padding: 16px 0px;
   }
+
+  animation: ${appear} 0.45s ease-in-out forwards;
 `;
 
 const OriginalLink = styled.span`
