@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from "styled-components";
 import { hoverSupported } from "../hoverSupported";
+import ClickableWrapper from "../ClickableWrapper";
 
 const ripple = keyframes`
   0% {
@@ -28,6 +29,13 @@ export const Wrapper = styled.div`
   position: relative;
   overflow: hidden;
   user-select: none;
+
+  &:focus {
+    outline: 3px solid
+      ${(p) =>
+        p.whiteOutline ? "var(--color-white)" : "var(--color-very-dark-blue)"};
+    outline-offset: 3px;
+  }
 
   &:active {
     transform: scale(0.85);
@@ -61,9 +69,11 @@ export const Wrapper = styled.div`
 
 function Button({ big, flat, children, ...props }) {
   return (
-    <Wrapper big={big} flat={flat} {...props}>
-      {children}
-    </Wrapper>
+    <ClickableWrapper>
+      <Wrapper big={big} flat={flat} {...props}>
+        {children}
+      </Wrapper>
+    </ClickableWrapper>
   );
 }
 

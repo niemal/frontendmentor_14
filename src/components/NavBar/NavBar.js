@@ -4,6 +4,7 @@ import { QUERIES } from "../constants";
 import Hamburger from "../Hamburger";
 import { useState, useRef } from "react";
 import { hoverSupported } from "../hoverSupported";
+import ClickableWrapper from "../ClickableWrapper";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -56,6 +57,13 @@ const NavEntry = styled.a`
   color: var(--color-gray-violet);
   font-weight: var(--font-weight-bold);
   transition: all 0.3s ease-in-out;
+
+  border-radius: 4px;
+
+  &:focus {
+    outline: 3px solid var(--color-very-dark-blue);
+    outline-offset: 6px;
+  }
 
   ${hoverSupported(css`
     &:hover {
@@ -177,16 +185,24 @@ function NavBar() {
         </LogoContainer>
 
         <NavWrapper>
-          <NavEntry href={"/"}>Features</NavEntry>
-          <NavEntry href={"/"}>Pricing</NavEntry>
-          <NavEntry href={"/"}>Resources</NavEntry>
+          <ClickableWrapper href={"/"}>
+            <NavEntry>Features</NavEntry>
+          </ClickableWrapper>
+          <ClickableWrapper>
+            <NavEntry href={"/"}>Pricing</NavEntry>
+          </ClickableWrapper>
+          <ClickableWrapper>
+            <NavEntry href={"/"}>Resources</NavEntry>
+          </ClickableWrapper>
         </NavWrapper>
       </LogoAndNavWrapper>
 
       <NavWrapper>
-        <NavEntry href={"/"} style={{ marginTop: "0px" }}>
-          Login
-        </NavEntry>
+        <ClickableWrapper>
+          <NavEntry href={"/"} style={{ marginTop: "0px" }}>
+            Login
+          </NavEntry>
+        </ClickableWrapper>
         <Button>Sign Up</Button>
       </NavWrapper>
 

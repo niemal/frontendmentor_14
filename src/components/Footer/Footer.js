@@ -68,6 +68,13 @@ const Link = styled.a`
   color: var(--color-gray-violet);
   transition: all 0.3s ease-in-out;
 
+  border-radius: 4px;
+
+  &:focus {
+    outline: 3px solid var(--color-white);
+    outline-offset: 6px;
+  }
+
   ${hoverSupported(css`
     &:hover {
       color: var(--color-cyan);

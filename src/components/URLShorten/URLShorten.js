@@ -198,6 +198,7 @@ function URLShorten() {
               onClick={() => {
                 shortenURL();
               }}
+              whiteOutline={true}
             >
               Shorten It!
             </Button>

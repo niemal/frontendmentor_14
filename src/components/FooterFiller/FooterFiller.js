@@ -75,6 +75,7 @@ function FooterFiller() {
           padding: "14px 40px",
           zIndex: 2,
         }}
+        whiteOutline={true}
       >
         Get Started
       </Button>
