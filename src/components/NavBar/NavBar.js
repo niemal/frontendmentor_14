@@ -184,7 +184,7 @@ function NavBar() {
           <Logo src={"/frontendmentor_14/logo.svg"} alt={"logo image"} />
         </LogoContainer>
 
-        <NavWrapper>
+        <NavWrapper as={"nav"} aria-label={"main website navigation"}>
           <ClickableWrapper href={"/"}>
             <NavEntry>Features</NavEntry>
           </ClickableWrapper>
@@ -197,7 +197,7 @@ function NavBar() {
         </NavWrapper>
       </LogoAndNavWrapper>
 
-      <NavWrapper>
+      <NavWrapper aria-label={"side website navigation"}>
         <ClickableWrapper>
           <NavEntry href={"/"} style={{ marginTop: "0px" }}>
             Login
